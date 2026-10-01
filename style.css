@@ -1,20 +1,20 @@
-/* Pinette site: one small stylesheet, light and dark, in Pinette's marigold and coral. */
+/* Bindette site: one small stylesheet, light and dark. */
 :root {
-  --bg: #fdf8f1;
+  --bg: #f5f8f3;
   --card: #ffffff;
-  --ink: #2a1f17;
-  --muted: #6b5646;
-  --accent: #b8481a;
-  --line: #f0e2cf;
+  --ink: #1f2420;
+  --muted: #5b6e62;
+  --accent: #148c73;
+  --line: #e6e0cc;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #17120e;
-    --card: #241c16;
-    --ink: #f7efe7;
-    --muted: #c4ae9b;
-    --accent: #ff9a62;
-    --line: #3a2d23;
+    --bg: #111614;
+    --card: #1c2520;
+    --ink: #eef5f0;
+    --muted: #a8bbae;
+    --accent: #3dc79e;
+    --line: #2c3a32;
   }
 }
 * { box-sizing: border-box; }
@@ -29,7 +29,7 @@ main { max-width: 720px; margin: 0 auto; }
 .hero { text-align: center; margin-bottom: 40px; }
 .icon {
   width: 112px; height: 112px; margin: 0 auto 14px; display: block;
-  filter: drop-shadow(0 10px 22px rgba(214, 108, 40, 0.26));
+  filter: drop-shadow(0 10px 22px rgba(31, 117, 92, 0.24));
 }
 h1 { font-size: 34px; margin: 0 0 6px; letter-spacing: -0.4px; }
 .tagline { color: var(--muted); margin: 0; font-size: 18px; }
@@ -49,11 +49,11 @@ li { margin: 5px 0; }
 a { color: var(--accent); }
 code {
   font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
-  background: rgba(214, 108, 40, 0.13);
+  background: rgba(61, 153, 102, 0.14);
   padding: 2px 6px; border-radius: 6px;
 }
 pre {
-  background: rgba(214, 108, 40, 0.13);
+  background: rgba(61, 153, 102, 0.14);
   padding: 12px 14px; border-radius: 10px; overflow-x: auto;
 }
 pre code { background: none; padding: 0; }
