@@ -52,6 +52,7 @@
 <body>
 <main>
 <div class="hero">
+  <div class="hero-pill">📌 Notes you keep in sight · Always-on-top, translucent & minimal</div>
   <img class="icon" src="../icon-512.png" alt="" width="112" height="112">
   <h1>Pinette</h1>
   <p class="tagline">Göz önünde tuttuğun notlar.</p>
@@ -108,6 +109,68 @@
   </details><!-- /family:nav -->
   </nav>
 </div>
+<div class="demo-wrapper" id="demo">
+  <div class="pinette-stage" role="group" aria-label="Interactive demo: floating sticky note with checklist and pinning">
+    <div class="pinette-note-card" id="pnCard">
+      <div class="pinette-pin-badge">📌</div>
+      <div class="pinette-note-title">Daily Priorities & Door Codes</div>
+      <div class="pinette-checklist" id="pnList">
+        <label class="pinette-item checked">
+          <input type="checkbox" checked>
+          <span>Send revised quote to David</span>
+        </label>
+        <label class="pinette-item">
+          <input type="checkbox">
+          <span>Front door security code: #4819</span>
+        </label>
+        <label class="pinette-item">
+          <input type="checkbox">
+          <span>Order workshop supplies before 4 PM</span>
+        </label>
+      </div>
+    </div>
+    <div class="demo-controls">
+      <button class="app-chip active" data-color="#fff8bc">Canary</button>
+      <button class="app-chip" data-color="#d3f9d8">Mint</button>
+      <button class="app-chip" data-color="#eebefa">Lavender</button>
+      <button class="app-chip" data-color="#ffe3e3">Rose</button>
+      <button class="app-chip" id="pnAddBtn">+ Add Checklist Item</button>
+    </div>
+    <span class="demo-hint">💡 Click any checklist item to strike it through, or pick a pastel theme</span>
+  </div>
+  <p class="demo-note">Visual simulation. On Mac, iPhone and iPad, Pinette floats above every open window with adjustable translucency.</p>
+</div>
+<script>
+(function() {
+  var card = document.getElementById('pnCard');
+  var list = document.getElementById('pnList');
+  var addBtn = document.getElementById('pnAddBtn');
+  var chips = document.querySelectorAll('.pinette-stage .app-chip[data-color]');
+
+  list.addEventListener('change', function(e) {
+    if (e.target.tagName === 'INPUT') {
+      var item = e.target.closest('.pinette-item');
+      if (item) item.classList.toggle('checked', e.target.checked);
+    }
+  });
+
+  chips.forEach(function(c) {
+    c.addEventListener('click', function() {
+      chips.forEach(function(x) { x.classList.remove('active'); });
+      c.classList.add('active');
+      card.style.background = c.getAttribute('data-color');
+    });
+  });
+
+  addBtn.addEventListener('click', function() {
+    var label = document.createElement('label');
+    label.className = 'pinette-item';
+    label.innerHTML = '<input type="checkbox"><span>Call electrician at 3 PM</span>';
+    list.appendChild(label);
+    addBtn.style.display = 'none';
+  });
+})();
+</script>
 
 <!-- family:shot --><figure class="shot"><img src="../img/hero.jpg" alt="" width="1600" height="860"></figure><!-- /family:shot -->
 <section class="card">
@@ -125,6 +188,48 @@
   <p class="note">macOS 14 Sonoma veya sonrası gerekir; iPhone ve iPad’de iOS ve iPadOS 17 veya sonrası; Android’de Android 8.0 veya sonrası.</p>
 </section>
 
+<section class="card comparison-card" id="comparison">
+  <h2>Standard notes apps vs Pinette</h2>
+  <p class="section-lead">Keep vital phone numbers, codes, and daily checklists in sight above every window.</p>
+  <div class="table-scroll">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Aspect</th>
+          <th>Standard Notes Apps</th>
+          <th class="highlight-col">Pinette</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Always in Sight</strong></td>
+          <td>Notes get lost behind browsers and code editor windows</td>
+          <td class="highlight-col"><strong>Floats above all windows, even in full-screen spaces</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Clean Footprint</strong></td>
+          <td>Cluttered with folders, sidebars, and formatting toolbars</td>
+          <td class="highlight-col"><strong>Pure minimal floating card with zero interface clutter</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Translucency Mode</strong></td>
+          <td>Solid opaque card blocks documents underneath</td>
+          <td class="highlight-col"><strong>Adjustable translucency lets you read text through the note</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Quick Summon</strong></td>
+          <td>Navigating window menus or cmd-tabbing repeatedly</td>
+          <td class="highlight-col"><strong>Global keyboard shortcut to summon, pin, or hide in a flash</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Native Checklists</strong></td>
+          <td>Plain text or overly complex database tables</td>
+          <td class="highlight-col"><strong>Markdown checklists, auto-links, and strike-through tasks</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 <section class="card">
   <h2>Tek paragrafta gizlilik</h2>
   <p>Pinette’in kendi sunucuları, hesabı, izlemesi ve analizi yoktur; geliştirici hiçbir veri toplamaz. Notların aygıtlarında kalır; Mac, iPhone ve iPad’de iCloud ile eşzamanla açıkken ayrıca yalnızca senin görebildiğin kendi özel iCloud’unda tutulur. Tam <a href="privacy.html">gizlilik politikası</a> aynı şeyi daha ayrıntılı anlatır.</p>
